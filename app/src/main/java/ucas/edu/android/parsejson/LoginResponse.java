@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * Created by abeer on 06,October,2022
  */
 class LoginResponse implements Parcelable {
+
     String studentId;
     String user_id;
     Data data;

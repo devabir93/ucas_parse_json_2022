@@ -5,6 +5,6 @@ import ucas.edu.android.parsejson.model.User;
 /**
  * Created by abeer on 03,November,2022
  */
-interface ListenerInterface {
+public interface ListenerInterface {
     void onclick(int userId,int pos);
 }
