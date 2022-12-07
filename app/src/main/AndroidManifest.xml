@@ -16,10 +16,10 @@
         android:theme="@style/Theme.ParseJson"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".retrofit.OrdersActivity"
             android:exported="false" />
         <activity
-            android:name=".retrofit.UsersActivity"
+            android:name=".retrofit.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,11 +28,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".retrofit.UsersActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".UserActivity"
             android:exported="false" />
         <activity
             android:name=".UserlistActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".VolleyActivity"
             android:exported="true" />

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -12,8 +11,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class ParseJsonFromAssets extends AppCompatActivity {
@@ -32,7 +29,7 @@ public class ParseJsonFromAssets extends AppCompatActivity {
     private void parseJsonFromAssets(String jsonString){
 
         LoginResponse loginResponseClass = new LoginResponse();
-        Data dataClass = new Data();
+        LoginData dataClass = new LoginData();
         OpenLibrarySub openLibrarySubClass = new OpenLibrarySub();
         ByLevel byLevelClass = new ByLevel();
 

@@ -2,7 +2,6 @@ package ucas.edu.android.parsejson;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -668,7 +667,7 @@ public class ParseJsonFromStringActivity extends AppCompatActivity {
                 "}";
 
         LoginResponse loginResponseClass = new LoginResponse();
-        Data dataClass = new Data();
+        LoginData dataClass = new LoginData();
         OpenLibrarySub openLibrarySubClass = new OpenLibrarySub();
         ByLevel byLevelClass = new ByLevel();
 

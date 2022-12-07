@@ -3,30 +3,35 @@ package ucas.edu.android.parsejson;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by abeer on 06,October,2022
  */
-class LoginResponse implements Parcelable {
+public class LoginResponse implements Parcelable {
 
+    @SerializedName("student_id")
     String studentId;
+    @SerializedName("user_id")
     String user_id;
-    Data data;
+    @SerializedName("data")
+    LoginData data;
+    @SerializedName("token")
+    String token;
 
     public LoginResponse() {
     }
 
-    public LoginResponse(String studentId, String user_id, Data data) {
+    public LoginResponse(String studentId, String user_id, LoginData loginData) {
         this.studentId = studentId;
         this.user_id = user_id;
-        this.data = data;
+        this.data = loginData;
     }
 
     protected LoginResponse(Parcel in) {
         studentId = in.readString();
         user_id = in.readString();
-        data = in.readParcelable(Data.class.getClassLoader());
+        data = in.readParcelable(LoginData.class.getClassLoader());
     }
 
     @Override
@@ -69,12 +74,20 @@ class LoginResponse implements Parcelable {
         this.user_id = user_id;
     }
 
-    public Data getData() {
+    public LoginData getData() {
         return data;
     }
 
-    public void setData(Data data) {
-        this.data = data;
+    public void setData(LoginData loginData) {
+        this.data = loginData;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     @Override
@@ -85,105 +98,6 @@ class LoginResponse implements Parcelable {
                 ", data=" + data +
                 '}';
     }
-}
-
-class Data implements Parcelable{
-    String notificationCount;
-    OpenLibrarySub openLibrarySub;
-    ArrayList<LandingPageItem> landingPageItemArrayList;
-    ArrayList<MainMenu> mainMenuArrayList;
-    ArrayList<Product> productArrayList;
-
-    public Data() {
-    }
-
-    public Data(String notificationCount, OpenLibrarySub openLibrarySub, ArrayList<LandingPageItem> landingPageItemArrayList, ArrayList<MainMenu> mainMenuArrayList, ArrayList<Product> productArrayList) {
-        this.notificationCount = notificationCount;
-        this.openLibrarySub = openLibrarySub;
-        this.landingPageItemArrayList = landingPageItemArrayList;
-        this.mainMenuArrayList = mainMenuArrayList;
-        this.productArrayList = productArrayList;
-    }
-
-    protected Data(Parcel in) {
-        notificationCount = in.readString();
-        openLibrarySub = in.readParcelable(OpenLibrarySub.class.getClassLoader());
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(notificationCount);
-        dest.writeParcelable(openLibrarySub, flags);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Data> CREATOR = new Creator<Data>() {
-        @Override
-        public Data createFromParcel(Parcel in) {
-            return new Data(in);
-        }
-
-        @Override
-        public Data[] newArray(int size) {
-            return new Data[size];
-        }
-    };
-
-    public String getNotificationCount() {
-        return notificationCount;
-    }
-
-    public void setNotificationCount(String notificationCount) {
-        this.notificationCount = notificationCount;
-    }
-
-    public OpenLibrarySub getOpenLibrarySub() {
-        return openLibrarySub;
-    }
-
-    public void setOpenLibrarySub(OpenLibrarySub openLibrarySub) {
-        this.openLibrarySub = openLibrarySub;
-    }
-
-    public ArrayList<LandingPageItem> getLandingPageItemArrayList() {
-        return landingPageItemArrayList;
-    }
-
-    public void setLandingPageItemArrayList(ArrayList<LandingPageItem> landingPageItemArrayList) {
-        this.landingPageItemArrayList = landingPageItemArrayList;
-    }
-
-    public ArrayList<MainMenu> getMainMenuArrayList() {
-        return mainMenuArrayList;
-    }
-
-    public void setMainMenuArrayList(ArrayList<MainMenu> mainMenuArrayList) {
-        this.mainMenuArrayList = mainMenuArrayList;
-    }
-
-    public ArrayList<Product> getProductArrayList() {
-        return productArrayList;
-    }
-
-    public void setProductArrayList(ArrayList<Product> productArrayList) {
-        this.productArrayList = productArrayList;
-    }
-
-    @Override
-    public String toString() {
-        return "Data{" +
-                "notificationCount='" + notificationCount + '\'' +
-                ", openLibrarySub=" + openLibrarySub +
-                ", landingPageItemArrayList=" + landingPageItemArrayList +
-                ", mainMenuArrayList=" + mainMenuArrayList +
-                ", productArrayList=" + productArrayList +
-                '}';
-    }
-
 }
 
 class OpenLibrarySub implements Parcelable{
