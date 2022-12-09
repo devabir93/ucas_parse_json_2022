@@ -13,13 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:text="its2"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/editTextNumberPassword"
         android:hint="Password"
-        android:text="1234"
         android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
